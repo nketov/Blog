@@ -7,11 +7,16 @@ $config = [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'modules' => [
+        'admin' => [
+            'class' => 'app\modules\admin\Module'
+        ],
         'ckeditor' => [
             'class' => 'wadeshuler\ckeditor\Module',
         ],
+
     ],
-    'language' => 'ru',
+    'language' => 'ru-RU',
+    'sourceLanguage' =>'ru-RU',
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
@@ -54,10 +59,13 @@ $config = [
             'rules' => [
                 [
                     'pattern' => '',
-                    'route' => '',
+                    'route' => '/post',
                     'suffix' => ''
                 ],
-                '<action:(about|contact|login)>' => 'site/<action>'
+                    'post/<id:\d+>/<title:.*?>'=>'post/view',
+                    'posts/<tag:.*?>'=>'post/index',
+                    '<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
+                   '<action:(about|contact|login)>' => 'site/<action>'
             ],
         ],
 

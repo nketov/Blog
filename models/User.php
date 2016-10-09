@@ -20,6 +20,8 @@ use yii\web\IdentityInterface;
  */
 class User extends ActiveRecord implements IdentityInterface
 {
+
+
     /**
      * @inheritdoc
      */
@@ -65,15 +67,20 @@ class User extends ActiveRecord implements IdentityInterface
     }
 
 
+    public  function isAdmin()
+    {
+        return $this->username === 'admin';
+    }
+
+
 
 //  User Identity
 
 
-
-public static function findIdentity($id)
-{
-    return static::findOne($id);
-}
+    public static function findIdentity($id)
+    {
+        return static::findOne($id);
+    }
 
 
 

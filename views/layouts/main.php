@@ -6,6 +6,7 @@
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
+use yii\helpers\Url;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 
@@ -27,7 +28,7 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => "<img src='images/logo.png'>",
+        'brandLabel' => "<img src='/images/logo.png'>",
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
@@ -36,22 +37,37 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Home', 'url' => ['/']],
-            ['label' => 'About', 'url' => ['/about']],
-            ['label' => 'Contact', 'url' => ['/contact']],
+            ['label' => 'Главная', 'url' => ['/post']],
+            ['label' => 'О блоге', 'url' => ['/about']],
+            ['label' => 'Контакты', 'url' => ['/contact']],
             Yii::$app->user->isGuest ? (
-                ['label' => "Вход", 'url' => ['login']]
+                ['label' => "Вход", 'url' => ['/login']]
             ) : (
                 '<li>'
                 . Html::beginForm(['/site/logout'], 'post', ['class' => 'navbar-form'])
                 . Html::submitButton(
-                    'Выход <i class="glyphicon glyphicon-user"></i> (' . Yii::$app->user->identity->username . ')',
-                    ['class' => 'btn btn-link']
+                    'Выход  <i class="fa fa-user"></i>  (' . Yii::$app->user->identity->username . ')',
+                    ['class' => 'user']
                 )
                 . Html::endForm()
                 . '</li>'
-            )
+            ),
+            Yii::$app->user->getIdentity()->username === 'admin' ? (
+
+            '<li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cog fa-lg"></i> <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li>'.Html::a('Пользователи', '/admin/user.html').'</li>
+            <li>'.Html::a('Посты', '/admin/post.html').'</li>
+            <li>'.Html::a('Комментарии', '/admin/comment.html').'</li>
+            <li>'.Html::a('Теги', '/admin/tag.html').'</li>
+            <li>'.Html::a('Справочник', '/admin/lookup.html').'</li>
+            
+          </ul>
+        </li>'
+            ) : ('<li></li>')
         ],
+
     ]);
     NavBar::end();
     ?>

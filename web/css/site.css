@@ -1,19 +1,63 @@
+:link, :visited, :hover, :focus, :active {
+    outline: none !important;
+    text-decoration: none !important;
+}
+
 html,
 body {
     height: 100%;
     background: url("/images/cd.png");
+    font-family:  Verdana !important;
 }
 
+td{
+    overflow: hidden;
+    max-width: 1000px;
+}
 
+h3{
+font-weight: bold;
+}
 
 .navbar-brand{
     position: relative;
     top: -12px;
 }
 
-.navbar-inverse{
-    background: #000;
+.navbar-inverse, .dropdown-menu, .pagination li:not(.active) * {
+    background:  linear-gradient(to bottom, #222 25%, #000 100%);
+    }
 
+.dropdown-menu  li a{
+    color: #AAA;
+}
+
+
+.navbar-inverse * :not(i){
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.user{
+    position: relative;
+    top: 7px;
+    border: none;
+    border-radius: 5px;
+    background:  linear-gradient(to bottom, #777 25%, #000);
+    color: #CCC
+}
+
+.user:hover{
+
+    background:  linear-gradient(to bottom, #BBB 25%, #555);
+    color: #000;
+}
+
+.post .title
+{
+    font-size: 18px;
+    font-weight: bold;
+    text-shadow: 0 1px 3px #007 ;
 }
 
 
@@ -30,9 +74,11 @@ body {
 
 .footer {
     height: 60px;
+    background:  linear-gradient(to bottom, #222 25%, #000 100%);
     background-color: #000;
     color: #ee5;
     padding-top: 20px;
+
 }
 
 .jumbotron {
@@ -59,7 +105,7 @@ a.asc:after, a.desc:after {
     position: relative;
     top: 1px;
     display: inline-block;
-    font-family: 'Glyphicons Halflings';
+    font-family: Verdana;
     font-style: normal;
     font-weight: normal;
     line-height: 1;
@@ -107,3 +153,117 @@ a.desc:after {
     padding: 10px 20px;
     margin: 0 0 15px 0;
 }
+
+.breadcrumb{
+    font-weight: bold;
+}
+
+.grid-view table{
+    font-weight: bolder;
+
+}
+
+.post .author
+{
+    color: #289;
+    margin: 1px ;
+    font-size: 8px;
+    font-weight: bolder;
+}
+
+.author-name{
+    color: #23A;
+    font-size: 9px;
+}
+
+
+.post
+{
+    margin: 0 0 20px;
+}
+
+.post .title
+{
+    font-size: 1.5em;
+    border-bottom: 1px solid #C9E0ED;
+}
+
+.post .title a
+{
+    color: #ff5;
+}
+
+
+
+.post .nav
+{
+    border-radius:20px;
+    padding: 5px 20px;
+    background-color: rgba(25, 75, 50, 0.075);
+    font-size: 9px;
+    margin: 2px;
+}
+
+
+.post .content
+{
+    border-radius:5px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.50);
+    color: #000;
+}
+
+
+
+.comment
+{
+   border-radius:30px;
+    padding: 12px;
+    background-color: rgba(15, 15, 15, 0.30);
+    margin: 12px 0;
+}
+
+
+.comment .content
+{
+    margin: 10px 0;
+    color: #BFC;
+
+    font-size: 14px;
+    font-style: italic;
+}
+
+.comment .author
+{
+    margin: 5px 0;
+    color: #12C;
+    font-weight: bold;
+    padding: 0 0 3px;
+    border-bottom: 4px solid #DDD;
+}
+
+.comment .time
+{
+    color: #005;
+    font-size: 0.8em;
+}
+
+.comment a.cid
+{
+    color:#050;
+    float:right;
+    font-size:1.5em;
+    font-weight:bold;
+    padding:0 5px 5px 5px;
+    text-decoration: none;
+}
+
+.comment a.cid:hover
+{
+    color:#5f5;
+}
+
+.comment .pending {
+    color: red;
+}
+
