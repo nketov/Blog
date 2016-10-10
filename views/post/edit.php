@@ -43,5 +43,4 @@ echo GridView::widget([
             ]
         ]
     ]);
-
 ?>

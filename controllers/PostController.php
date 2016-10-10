@@ -52,24 +52,16 @@ class PostController extends Controller
     }
 
 
-    /**
-     * Lists all Post models.
-     */
-
-
     public function actionIndex()
     {
-
-
-
         $searchModel = new PostSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-//        if(isset($_GET['tag'])){
-//            $dataProvider->query->andFilterWhere(['like','tags','погода']);
-//        }
-
         $dataProvider->query->where(['status' => Post::STATUS_PUBLISHED]);
+
+        if(isset($_GET['tag'])){
+            $dataProvider->query->andFilterWhere(['like','tags',$_GET]);
+        }
 
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -87,6 +79,7 @@ class PostController extends Controller
 
         if (isset($_GET['Post']))
             $searchModel->attributes = $_GET['Post'];
+
         return $this->render('edit', array(
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider
@@ -103,21 +96,6 @@ class PostController extends Controller
         }
     }
 
-
-    /**
-     * Displays a single Post model.
-     * @param integer $id
-     */
-
-
-    
-
-    /**
-     * Creates a new Post model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
-     */
-
     public function actionCreate()
     {
         $model = new Post();
@@ -131,12 +109,7 @@ class PostController extends Controller
         }
     }
 
-    /**
-     * Updates an existing Post model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
-     * @return mixed
-     */
+
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
@@ -150,34 +123,22 @@ class PostController extends Controller
         }
     }
 
-    /**
-     * Deletes an existing Post model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
-     * @return mixed
-     */
     public function actionDelete($id)
     {
 
         if (Yii::$app->request->post()) {
             $this->findModel($id)->delete();
 
-            // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
             if (!isset($_GET['ajax']))
                 $this->redirect(array('index'));
+
         } else
             throw new HttpException(400, 'Ошибочный запрос. Пожайлуйста, не повторяйте его снова.');
 
         return $this->redirect(['index']);
     }
 
-    /**
-     * Finds the Post model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
-     * @return Post the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
+
     protected function findModel($id)
     {
         if (($model = Post::findOne($id)) !== null) {
@@ -191,9 +152,12 @@ class PostController extends Controller
     public function loadModel()
     {
         if ($this->_model === null) {
+
             if (isset($_GET['id'])) {
+
                 $this->_model = Post::findOne($_GET['id']);
                 $status = $this->_model->status;
+
                 if ((Yii::$app->user->isGuest) && !(in_array($status, [Post::STATUS_PUBLISHED, Post::STATUS_ARCHIVED]))) {
                     throw new HttpException(404, 'Страница недоступна!!!.');
                 }
@@ -206,7 +170,6 @@ class PostController extends Controller
     }
 
     public function actionView($id)
-
     {
 
         $post = $this->loadModel();
@@ -218,8 +181,6 @@ class PostController extends Controller
         ]);
 
     }
-
-
 
 
     public function actionValidation(){

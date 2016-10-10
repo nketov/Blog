@@ -3,7 +3,6 @@
         <hr>
         <?php
         use yii\helpers\Html;
-
         echo Html::a($model->title, $model->url); ?>
     </div>
 
@@ -13,7 +12,7 @@
 
     <div class="content row">
         <?php
-        //
+
         echo $model->content;
         ?>
     </div>

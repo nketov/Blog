@@ -6,17 +6,38 @@
 html,
 body {
     height: 100%;
-    background: url("/images/cd.png");
+    background: url("/images/gw.png");
     font-family:  Verdana !important;
+    color:#fff !important;
+    text-shadow: 0 1px 2px #000 ;
 }
+
+
+form textarea,input,select {
+    text-align: left;
+    margin: 5px;
+
+    background: linear-gradient(to bottom right,
+    #EEE 25%,
+    #DDD 50%,
+    #CCC 75%,
+    #BBB 100%) !important;
+
+    font: bold italic 16px "Segoe UI" !important;
+    color: #000 !important;
+    border-radius: 3px;
+}
+
+
 
 td{
     overflow: hidden;
-    max-width: 1000px;
+    max-width: 925px;
 }
 
-h3{
-font-weight: bold;
+h1,h2,h3,h4,h5,h6{
+    font-family:  Helvetica !important;
+    color: #AE8;
 }
 
 .navbar-brand{
@@ -28,8 +49,13 @@ font-weight: bold;
     background:  linear-gradient(to bottom, #222 25%, #000 100%);
     }
 
+.pagination .active *{
+    background:  linear-gradient(to bottom, #777 25%, #333 100%);
+}
+
+
 .dropdown-menu  li a{
-    color: #AAA;
+    color: #CCC;
 }
 
 
@@ -44,7 +70,7 @@ font-weight: bold;
     border: none;
     border-radius: 5px;
     background:  linear-gradient(to bottom, #777 25%, #000);
-    color: #CCC
+    color: #EEE;
 }
 
 .user:hover{
@@ -57,9 +83,8 @@ font-weight: bold;
 {
     font-size: 18px;
     font-weight: bold;
-    text-shadow: 0 1px 3px #007 ;
+    text-shadow: 0 1px 3px #005 ;
 }
-
 
 .wrap {
     min-height: 100%;
@@ -75,75 +100,20 @@ font-weight: bold;
 .footer {
     height: 60px;
     background:  linear-gradient(to bottom, #222 25%, #000 100%);
-    background-color: #000;
-    color: #ee5;
+    color: #fe5;
     padding-top: 20px;
-
 }
 
-.jumbotron {
-
-    text-align: center;
-    color: #FB3;
-    text-shadow: 0 2px 3px #005 ;
-    background-color: transparent;
-}
-
-.jumbotron .btn {
-
-    font-size: 36px;
-    padding: 14px 24px;
-}
 
 .not-set {
     color: #c55;
     font-style: italic;
 }
 
-/* add sorting icons to gridview sort links */
-a.asc:after, a.desc:after {
-    position: relative;
-    top: 1px;
-    display: inline-block;
-    font-family: Verdana;
-    font-style: normal;
-    font-weight: normal;
-    line-height: 1;
-    padding-left: 5px;
-}
-
-a.asc:after {
-    content: /*"\e113"*/ "\e151";
-}
-
-a.desc:after {
-    content: /*"\e114"*/ "\e152";
-}
-
-.sort-numerical a.asc:after {
-    content: "\e153";
-}
-
-.sort-numerical a.desc:after {
-    content: "\e154";
-}
-
-.sort-ordinal a.asc:after {
-    content: "\e155";
-}
-
-.sort-ordinal a.desc:after {
-    content: "\e156";
-}
-
-.grid-view th {
-    white-space: nowrap;
-}
-
 .hint-block {
     display: block;
     margin-top: 5px;
-    color: #999;
+    color: #F0F;
 }
 
 .error-summary {
@@ -156,52 +126,55 @@ a.desc:after {
 
 .breadcrumb{
     font-weight: bold;
-}
-
-.grid-view table{
-    font-weight: bolder;
-
+    background: none !important;
 }
 
 .post .author
 {
-    color: #289;
-    margin: 1px ;
+    color: #EEE;
     font-size: 8px;
     font-weight: bolder;
 }
 
 .author-name{
-    color: #23A;
+    color: #FA8;
     font-size: 9px;
 }
 
 
 .post
 {
-    margin: 0 0 20px;
-}
-
-.post .title
-{
-    font-size: 1.5em;
-    border-bottom: 1px solid #C9E0ED;
+    margin: 0 0 15px;
 }
 
 .post .title a
 {
-    color: #ff5;
+    color: #ffe500;
 }
 
-
+.post .title a:hover
+{
+    color: #ffa;
+}
 
 .post .nav
 {
     border-radius:20px;
     padding: 5px 20px;
-    background-color: rgba(25, 75, 50, 0.075);
+    background-color: rgba(35, 85, 95, 0.25);
     font-size: 9px;
     margin: 2px;
+    max-width: 375px;
+}
+
+a
+{
+    color: #0af;
+}
+
+a:hover
+{
+    color: #5CF;
 }
 
 
@@ -209,17 +182,17 @@ a.desc:after {
 {
     border-radius:5px;
     padding: 10px;
-    background-color: rgba(255, 255, 255, 0.50);
+    background-color: rgba(255, 255, 255, 0.75);
+    max-width: 850px;
     color: #000;
+    text-shadow: none;
 }
-
-
 
 .comment
 {
    border-radius:30px;
-    padding: 12px;
-    background-color: rgba(15, 15, 15, 0.30);
+    padding: 16px;
+    background-color: rgba(15, 15, 15, 0.35);
     margin: 12px 0;
 }
 
@@ -227,32 +200,33 @@ a.desc:after {
 .comment .content
 {
     margin: 10px 0;
-    color: #BFC;
-
-    font-size: 14px;
+    color: #CFC;
+    font-size: 11px;
     font-style: italic;
 }
 
-.comment .author
+.comment  .author
 {
-    margin: 5px 0;
-    color: #12C;
+   margin: 5px 0;
+  color:#3F5 ;
     font-weight: bold;
     padding: 0 0 3px;
-    border-bottom: 4px solid #DDD;
+    border-bottom: 1px inset #DDD;
+    font-size: 0.75em;
 }
+
 
 .comment .time
 {
-    color: #005;
-    font-size: 0.8em;
+    color: #F7d;
+    font-size: 0.45em;
 }
 
 .comment a.cid
 {
-    color:#050;
+    color:#975;
     float:right;
-    font-size:1.5em;
+    font-size:0.75em;
     font-weight:bold;
     padding:0 5px 5px 5px;
     text-decoration: none;
@@ -267,3 +241,33 @@ a.desc:after {
     color: red;
 }
 
+#comment-form .form-group {
+    font-size: 12px;
+    max-width: 700px;
+}
+
+
+.alert{
+    text-align: center;
+    color: #050 !important;
+    font-size: 22px;
+}
+
+table, table *{
+    border: none !important;
+}
+
+table tr:nth-child(odd) {
+    background-color: rgba(1, 1, 1, 0.35) !important;
+
+}
+
+table  th{
+    background-color: rgba(1, 1, 1, 0.42) !important;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.action-column{
+    display: none;
+}

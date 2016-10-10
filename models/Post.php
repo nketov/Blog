@@ -7,21 +7,6 @@ use Yii;
 use yii\helpers\Html;
 use yii\helpers\Url;
 
-/**
- * This is the model class for table "{{%post}}".
- *
- * @property integer $id
- * @property string $title
- * @property string $content
- * @property string $tags
- * @property integer $status
- * @property integer $create_time
- * @property integer $update_time
- * @property integer $author_id
- *
- * @property Comment[] $comments
- * @property User $author
- */
 class Post extends \yii\db\ActiveRecord
 {
 
@@ -30,17 +15,12 @@ class Post extends \yii\db\ActiveRecord
     const STATUS_ARCHIVED = 3;
 
 
-    /**
-     * @inheritdoc
-     */
     public static function tableName()
     {
         return '{{%post}}';
     }
 
-    /**
-     * @inheritdoc
-     */
+
     public function rules()
     {
         return [
@@ -51,7 +31,7 @@ class Post extends \yii\db\ActiveRecord
             [['author_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['author_id' => 'id']],
             array('status', 'in', 'range' => array(1, 2, 3)),
             array('tags', 'match', 'pattern' => '/^[А-Яа-я\w\s,]+$/u',
-                'message' => 'В тагах можно использовать только буквы.'),
+                'message' => 'В тегах можно использовать только буквы.'),
             array('tags', 'normalizeTags')
         ];
     }
@@ -61,17 +41,14 @@ class Post extends \yii\db\ActiveRecord
         $this->tags = Tag::array2string(array_unique(Tag::string2array($this->tags)));
     }
 
-
-    /**
-     * @inheritdoc
-     */
+    
     public function attributeLabels()
     {
         return [
             'id' => 'ID',
             'title' => 'Название',
             'content' => 'Содержание',
-            'tags' => 'Таги',
+            'tags' => 'Теги',
             'status' => 'Статус',
             'create_time' => 'Время создания',
             'update_time' => 'Время изменения',
@@ -124,8 +101,8 @@ class Post extends \yii\db\ActiveRecord
             if ($this->isNewRecord) {
                 $this->create_time = $this->update_time = time();
                 $this->author_id = Yii::$app->user->id;
-            } else     
-                $this->update_time = time();       
+            } else
+                $this->update_time = time();
             return true;
         } else
             return false;
@@ -143,7 +120,7 @@ class Post extends \yii\db\ActiveRecord
     public function afterDelete()
     {
         parent::afterDelete();
-        Comment::deleteAll('post_id='.$this->id);
+        Comment::deleteAll('post_id=' . $this->id);
         Tag::updateFrequency($this->tags, '');
     }
 
@@ -161,7 +138,7 @@ class Post extends \yii\db\ActiveRecord
             $comment->status = Comment::STATUS_PENDING;
         else
             $comment->status = Comment::STATUS_APPROVED;
-                
+
         $comment->post_id = $this->id;
         return $comment->save();
     }

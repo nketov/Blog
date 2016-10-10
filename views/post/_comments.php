@@ -5,7 +5,7 @@ foreach($comments as $comment): ?>
 	<div class="comment" id="c<?php echo $comment->id; ?>">
 
 
-		<?php echo Html::a("#{$comment->id}", $comment->getUrl($post), array(
+		<?php echo Html::a("#{$comment->id}", $comment->getCommentUrl($post), array(
 			'class'=>'cid',
 			'title'=>'Постоянная ссылка на этот комментарий',
 		)); ?>

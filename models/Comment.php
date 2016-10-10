@@ -5,20 +5,7 @@ namespace app\models;
 use Yii;
 use yii\bootstrap\Html;
 
-/**
- * This is the model class for table "{{%comment}}".
- *
- * @property integer $id
- * @property string $content
- * @property integer $status
- * @property integer $create_time
- * @property string $author
- * @property string $email
- * @property string $url
- * @property integer $post_id
- *
- * @property Post $post
- */
+
 class Comment extends \yii\db\ActiveRecord
 {
 
@@ -26,17 +13,11 @@ class Comment extends \yii\db\ActiveRecord
     const STATUS_APPROVED = 2;
 
 
-    /**
-     * @inheritdoc
-     */
     public static function tableName()
     {
         return '{{%comment}}';
     }
-
-    /**
-     * @inheritdoc
-     */
+    
     public function rules()
     {
         return [
@@ -50,9 +31,6 @@ class Comment extends \yii\db\ActiveRecord
         ];
     }
 
-    /**
-     * @inheritdoc
-     */
     public function attributeLabels()
     {
         return [
@@ -67,9 +45,7 @@ class Comment extends \yii\db\ActiveRecord
         ];
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
+    
     public function getPost()
     {
         return $this->hasOne(Post::className(), ['id' => 'post_id']);
@@ -84,7 +60,7 @@ class Comment extends \yii\db\ActiveRecord
     }
 
 
-    public function getUrl($post = null)
+    public function getCommentUrl($post = null)
     {
         if ($post === null)
             $post = $this->post;
