@@ -48,8 +48,8 @@ class CommentController extends Controller
     {
         $searchModel = new CommentSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
-        return $this->render('index', [
+        
+            return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
@@ -60,11 +60,6 @@ class CommentController extends Controller
     {
         $model = $this->findModel($id);
 
-//        if(isset($_POST['ajax']) && $_POST['ajax']==='comment-form')
-//        {
-//            echo ActiveForm::validate($model);
-//            Yii::$app->end();
-//        }
 
         if (isset($_POST['Comment'])) {
             $model->attributes = $_POST['Comment'];
@@ -72,7 +67,7 @@ class CommentController extends Controller
                 $this->redirect(array('index'));
         }
 
-        $this->render('update', array(
+        return $this->render('update', array(
             'model' => $model,
         ));
 
@@ -80,16 +75,6 @@ class CommentController extends Controller
     }
 
 
-    public function actionDelete($id)
-    {
-        if (Yii::$app->request->post()) {
-            $this->loadModel()->delete();
-
-            if (!isset($_POST['ajax']))
-                $this->redirect(array('index'));
-        } else
-            throw new HttpException(400, 'Ошибочный запрос. Пожайлуйста, не повторяйте его снова.');
-    }
 
 
     protected function findModel($id)
@@ -116,10 +101,24 @@ class CommentController extends Controller
 
     public function actionApprove()
     {
-        if (Yii::$app->request->post()) {
+        if (Yii::$app->request->isPost) {
             $comment = $this->loadModel();
             $comment->approve();
             $this->redirect(array('index'));
+        } else
+            throw new HttpException(400, 'Ошибочный запрос. Пожайлуйста, не повторяйте его снова.');
+    }
+
+
+
+    public function actionDelete()
+    {
+        if (Yii::$app->request->isPost) {
+            $this->loadModel()->delete();
+
+            if (!isset($_POST['ajax']))
+                $this->redirect(array('index'));
+
         } else
             throw new HttpException(400, 'Ошибочный запрос. Пожайлуйста, не повторяйте его снова.');
     }

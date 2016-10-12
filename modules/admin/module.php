@@ -7,7 +7,7 @@ use yii\filters\AccessControl;
 /**
  * admin module definition class
  */
-class module extends \yii\base\Module
+class Module extends \yii\base\Module
 {
 
     public function behaviors()

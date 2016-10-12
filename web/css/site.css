@@ -8,7 +8,7 @@ body {
     height: 100%;
     background: url("/images/gw.png");
     font-family:  Verdana !important;
-    color:#fff !important;
+    color:#DDD !important;
     text-shadow: 0 1px 2px #000 ;
 }
 
@@ -45,7 +45,7 @@ h1,h2,h3,h4,h5,h6{
     top: -12px;
 }
 
-.navbar-inverse, .dropdown-menu, .pagination li:not(.active) * {
+.navbar-inverse, .dropdown-menu, .pagination li:not(.active) *, .panel-heading {
     background:  linear-gradient(to bottom, #222 25%, #000 100%);
     }
 
@@ -54,8 +54,8 @@ h1,h2,h3,h4,h5,h6{
 }
 
 
-.dropdown-menu  li a{
-    color: #CCC;
+.dropdown-menu  li a, .panel-heading{
+    color: #CCC !important;
 }
 
 
@@ -131,13 +131,13 @@ h1,h2,h3,h4,h5,h6{
 
 .post .author
 {
-    color: #EEE;
+    color: #FFF;
     font-size: 8px;
-    font-weight: bolder;
+    font-weight: bold;
 }
 
 .author-name{
-    color: #FA8;
+    color: #7F5;
     font-size: 9px;
 }
 
@@ -154,7 +154,7 @@ h1,h2,h3,h4,h5,h6{
 
 .post .title a:hover
 {
-    color: #ffa;
+    color: #ffa !important;
 }
 
 .post .nav
@@ -169,12 +169,12 @@ h1,h2,h3,h4,h5,h6{
 
 a
 {
-    color: #0af;
+    color: #09f;
 }
 
 a:hover
 {
-    color: #5CF;
+    color: #FF0 !important;
 }
 
 
@@ -208,7 +208,7 @@ a:hover
 .comment  .author
 {
    margin: 5px 0;
-  color:#3F5 ;
+  color:#3F5;
     font-weight: bold;
     padding: 0 0 3px;
     border-bottom: 1px inset #DDD;
@@ -219,12 +219,12 @@ a:hover
 .comment .time
 {
     color: #F7d;
-    font-size: 0.45em;
+    font-size: 0.55em;
 }
 
 .comment a.cid
 {
-    color:#975;
+    color:#B75;
     float:right;
     font-size:0.75em;
     font-weight:bold;
@@ -247,7 +247,7 @@ a:hover
 }
 
 
-.alert{
+.alert-success{
     text-align: center;
     color: #050 !important;
     font-size: 22px;
@@ -257,17 +257,44 @@ table, table *{
     border: none !important;
 }
 
-table tr:nth-child(odd) {
+tbody tr:nth-child(2n+1){
     background-color: rgba(1, 1, 1, 0.35) !important;
-
 }
 
 table  th{
-    background-color: rgba(1, 1, 1, 0.42) !important;
+    background-color: rgba(1, 1, 1, 0.65) !important;
     border-radius: 20px;
     text-align: center;
 }
 
 .action-column{
     display: none;
+}
+
+.panel{
+    margin-left: 25px;
+    border-radius: 16px;
+    border: solid 2px #222;
+    background: rgba(1, 1, 1, 0.25);
+    }
+
+.panel-heading{
+    border:none;
+    border-top-right-radius: 14px;
+    border-top-left-radius: 14px;
+}
+
+.panel-body .btn{
+    font-weight: bold;
+    font-size: 16px;
+    background: none;
+}
+
+.panel-body .approve{
+    font-size: 12px;
+}
+
+.panel-body ul {
+    font-size: 12px;
+    padding: 5px;
 }

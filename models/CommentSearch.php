@@ -41,7 +41,7 @@ class CommentSearch extends Comment
      */
     public function search($params)
     {
-        $query = Comment::find();
+        $query = Comment::find()->joinWith('post')->onCondition(['=', 'author_id', Yii::$app->user->id]) ;
 
         // add conditions that should always apply here
 
@@ -52,7 +52,7 @@ class CommentSearch extends Comment
             ],
             'sort' => [
                 'defaultOrder' => [
-                    'status' => SORT_DESC,
+                    'status' => SORT_ASC,
                     'create_time' => SORT_DESC,
                 ]
             ]

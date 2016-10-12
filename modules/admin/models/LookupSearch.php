@@ -8,7 +8,7 @@ use yii\data\ActiveDataProvider;
 use app\modules\admin\models\Lookup;
 
 /**
- * LookupSearch represents the model behind the search form about `app\modules\admin\models\Lookup`.
+ * LookupSearch represents the model behind the search form about `app\modules\admin\models\lookup`.
  */
 class LookupSearch extends Lookup
 {

@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'title',
             'content:ntext',
             'tags:ntext',
-//            app\modules\admin\models\Lookup::item('PostStatus', $model->status)
+//            app\modules\admin\models\lookup::item('PostStatus', $model->status)
             // 'create_time:datetime',
             // 'update_time:datetime',
             // 'author_id',

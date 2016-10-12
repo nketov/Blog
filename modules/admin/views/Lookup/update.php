@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\modules\admin\models\Lookup */
 
-$this->title = 'Update Lookup: ' . $model->name;
+$this->title = 'Update lookup: ' . $model->name;
 $this->params['breadcrumbs'][] = ['label' => 'Lookups', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';

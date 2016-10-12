@@ -10,7 +10,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * LookupController implements the CRUD actions for Lookup model.
+ * LookupController implements the CRUD actions for lookup model.
  */
 class LookupController extends Controller
 {
@@ -30,7 +30,7 @@ class LookupController extends Controller
     }
 
     /**
-     * Lists all Lookup models.
+     * Lists all lookup models.
      * @return mixed
      */
     public function actionIndex()
@@ -45,7 +45,7 @@ class LookupController extends Controller
     }
 
     /**
-     * Displays a single Lookup model.
+     * Displays a single lookup model.
      * @param integer $id
      * @return mixed
      */
@@ -57,7 +57,7 @@ class LookupController extends Controller
     }
 
     /**
-     * Creates a new Lookup model.
+     * Creates a new lookup model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
@@ -75,7 +75,7 @@ class LookupController extends Controller
     }
 
     /**
-     * Updates an existing Lookup model.
+     * Updates an existing lookup model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -94,7 +94,7 @@ class LookupController extends Controller
     }
 
     /**
-     * Deletes an existing Lookup model.
+     * Deletes an existing lookup model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -107,7 +107,7 @@ class LookupController extends Controller
     }
 
     /**
-     * Finds the Lookup model based on its primary key value.
+     * Finds the lookup model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
      * @return Lookup the loaded model

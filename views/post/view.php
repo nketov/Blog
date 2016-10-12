@@ -2,8 +2,6 @@
 $this->title = 'Главная';
 ?>
 
-<div class="container row">
-
     <div class="post-view">
         <?php
         echo $this->render('_view', [
@@ -51,6 +49,5 @@ $this->title = 'Главная';
 
      
 
-    </div>
 
 </div>

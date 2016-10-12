@@ -78,6 +78,7 @@ class SiteController extends Controller
      *
      * @return string
      */
+
     public function actionLogout()
     {
         Yii::$app->user->logout();
@@ -109,6 +110,7 @@ class SiteController extends Controller
      *
      * @return string
      */
+    
     public function actionAbout()
     {
         return $this->render('about');

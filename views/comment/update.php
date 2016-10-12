@@ -1,39 +1,9 @@
 <?php
 
-use yii\helpers\Html;
-use yii\widgets\ListView;
-
-/* @var $this yii\web\View */
-/* @var $model app\models\Comment */
-
-$this->title = 'Update Comment: ' . $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Comments', 'url' => ['index']];
-
+$this->params['breadcrumbs'][] =
+    'Update Comment #'.$model->id;
 ?>
 
-<div class="container">
-    <div class="row">
-        <div class="post-index col-lg-10">
+<h4>Update Comment #<?php echo $model->id; ?></h4>
 
-            <?= ListView::widget([
-                'dataProvider' => $dataProvider,
-                'itemView' => '_view',
-                'layout' => "{items}\n{pager}",
-                'summary' => 'Показано {count} из {totalCount}',
-                'summaryOptions' => [
-                    'tag' => 'span',
-                    'class' => 'my-summary'
-                ],
-
-                'itemOptions' => [
-                    'tag' => 'div',
-                    'class' => 'post-item',
-                ],
-
-                'emptyText' => '<p>Список пуст</p>',
-                'emptyTextOptions' => [
-                    'tag' => 'p'
-                ],
-            ]); ?>
-            <br>
-        </div>
+<?php echo $this->render('_form', array('model'=>$model)); ?>

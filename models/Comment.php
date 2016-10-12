@@ -77,15 +77,18 @@ class Comment extends \yii\db\ActiveRecord
     }
 
     
-    public function getPendingCommentCount()
+    public static  function getPendingCommentCount()
     {
-        return $this->find()->where('status=' . self::STATUS_PENDING)->count() ;
+        return self::find()->joinWith('post')
+            ->onCondition(['=', 'author_id', Yii::$app->user->id])
+            ->andWhere(['tbl_comment.status' => self::STATUS_PENDING])
+            ->count() ;
     }
 
    
-    public function findRecentComments($limit = 10)
+    public static function findRecentComments($limit = 10)
     {
-        return $this->find()->
+        return self::find()->
         where(['status' => self::STATUS_APPROVED])->
         orderBy('create_time DESC')->
         limit($limit)->with('post')->all();

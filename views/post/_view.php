@@ -26,4 +26,5 @@
             Последние измененния <?php echo date('F j, Y', $model->update_time); ?>
         </div>
     </div>
+    
 </div>
