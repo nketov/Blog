@@ -38,6 +38,7 @@ class CommentController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
+                    'approve' => ['POST'],
                 ],
             ],
         ];
@@ -60,7 +61,6 @@ class CommentController extends Controller
     {
         $model = $this->findModel($id);
 
-
         if (isset($_POST['Comment'])) {
             $model->attributes = $_POST['Comment'];
             if ($model->save())
@@ -70,11 +70,7 @@ class CommentController extends Controller
         return $this->render('update', array(
             'model' => $model,
         ));
-
-
     }
-
-
 
 
     protected function findModel($id)
@@ -110,7 +106,6 @@ class CommentController extends Controller
     }
 
 
-
     public function actionDelete()
     {
         if (Yii::$app->request->isPost) {
@@ -122,6 +117,5 @@ class CommentController extends Controller
         } else
             throw new HttpException(400, 'Ошибочный запрос. Пожайлуйста, не повторяйте его снова.');
     }
-
-
+    
 }

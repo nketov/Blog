@@ -38,9 +38,9 @@ echo GridView::widget([
             'filter' => false,
         ],
 
-            [
-                'class' => yii\grid\ActionColumn::className(),
-            ]
+        [
+            'class' => yii\grid\ActionColumn::className(),
         ]
-    ]);
+    ]
+]);
 ?>

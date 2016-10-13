@@ -41,7 +41,7 @@ class Post extends \yii\db\ActiveRecord
         $this->tags = Tag::array2string(array_unique(Tag::string2array($this->tags)));
     }
 
-    
+
     public function attributeLabels()
     {
         return [
@@ -142,5 +142,4 @@ class Post extends \yii\db\ActiveRecord
         $comment->post_id = $this->id;
         return $comment->save();
     }
-
 }

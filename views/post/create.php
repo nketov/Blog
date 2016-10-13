@@ -2,8 +2,6 @@
 
 use yii\helpers\Html;
 
-/* @var $this yii\web\View */
-/* @var $model app\models\Post */
 
 $this->title = 'Создание поста';
 $this->params['breadcrumbs'][] = $this->title;

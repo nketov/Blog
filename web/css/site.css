@@ -7,83 +7,78 @@ html,
 body {
     height: 100%;
     background: url("/images/gw.png");
-    font-family:  Verdana !important;
-    color:#DDD !important;
-    text-shadow: 0 1px 2px #000 ;
+    font-family: Verdana !important;
+    color: #DDD !important;
+    text-shadow: 0 1px 2px #000;
 }
 
-
-form textarea,input,select {
+form textarea, input, select {
     text-align: left;
     margin: 5px;
-
     background: linear-gradient(to bottom right,
     #EEE 25%,
     #DDD 50%,
     #CCC 75%,
     #BBB 100%) !important;
 
+    max-width: 550px;
+
     font: bold italic 16px "Segoe UI" !important;
     color: #000 !important;
     border-radius: 3px;
 }
 
-
-
-td{
+td {
     overflow: hidden;
     max-width: 925px;
 }
 
-h1,h2,h3,h4,h5,h6{
-    font-family:  Helvetica !important;
+h1, h2, h3, h4, h5, h6 {
+    font-family: Helvetica !important;
     color: #AE8;
 }
 
-.navbar-brand{
+.navbar-brand {
     position: relative;
     top: -12px;
 }
 
 .navbar-inverse, .dropdown-menu, .pagination li:not(.active) *, .panel-heading {
-    background:  linear-gradient(to bottom, #222 25%, #000 100%);
-    }
-
-.pagination .active *{
-    background:  linear-gradient(to bottom, #777 25%, #333 100%);
+    background: linear-gradient(to bottom, #222 25%, #000 100%);
 }
 
+.pagination .active * {
+    background: linear-gradient(to bottom, #777 25%, #333 100%);
+}
 
-.dropdown-menu  li a, .panel-heading{
+.dropdown-menu li a {
     color: #CCC !important;
 }
 
-
-.navbar-inverse * :not(i){
+.navbar-inverse * :not(i) {
     font-weight: bold;
     font-size: 14px;
 }
 
-.user{
+.user {
     position: relative;
     top: 7px;
     border: none;
     border-radius: 5px;
-    background:  linear-gradient(to bottom, #777 25%, #000);
+    background: linear-gradient(to bottom, #777 25%, #000);
     color: #EEE;
 }
 
-.user:hover{
+.user:hover {
 
-    background:  linear-gradient(to bottom, #BBB 25%, #555);
+    background: linear-gradient(to bottom, #BBB 25%, #555);
     color: #000;
 }
 
-.post .title
-{
+.post .title {
     font-size: 18px;
     font-weight: bold;
-    text-shadow: 0 1px 3px #005 ;
+    text-shadow: 0 1px 3px #000;
 }
 
 .wrap {
@@ -99,11 +94,10 @@ h1,h2,h3,h4,h5,h6{
 
 .footer {
     height: 60px;
-    background:  linear-gradient(to bottom, #222 25%, #000 100%);
+    background: linear-gradient(to bottom, #222 25%, #000 100%);
     color: #fe5;
     padding-top: 20px;
 }
-
 
 .not-set {
     color: #c55;
@@ -124,42 +118,36 @@ h1,h2,h3,h4,h5,h6{
     margin: 0 0 15px 0;
 }
 
-.breadcrumb{
+.breadcrumb {
     font-weight: bold;
     background: none !important;
 }
 
-.post .author
-{
+.post .author {
     color: #FFF;
     font-size: 8px;
     font-weight: bold;
 }
 
-.author-name{
+.author-name {
     color: #7F5;
     font-size: 9px;
 }
 
-
-.post
-{
+.post {
     margin: 0 0 15px;
 }
 
-.post .title a
-{
-    color: #ffe500;
+.post .title a {
+    color: #5BD;
 }
 
-.post .title a:hover
-{
-    color: #ffa !important;
+.post .title a:hover {
+    color: #ff5 !important;
 }
 
-.post .nav
-{
-    border-radius:20px;
+.post .nav {
+    border-radius: 20px;
     padding: 5px 20px;
     background-color: rgba(35, 85, 95, 0.25);
     font-size: 9px;
@@ -167,20 +155,22 @@ h1,h2,h3,h4,h5,h6{
     max-width: 375px;
 }
 
-a
-{
+a {
     color: #09f;
 }
 
-a:hover
-{
+a:hover {
     color: #FF0 !important;
 }
 
+a:active, .panel-body .btn:active {
+    box-shadow: none !important;
+    color: #FFA !important;
+    text-shadow: 0 1px 2px #fff;
+}
 
-.post .content
-{
-    border-radius:5px;
+.post .content {
+    border-radius: 5px;
     padding: 10px;
     background-color: rgba(255, 255, 255, 0.75);
     max-width: 850px;
@@ -188,53 +178,45 @@ a:hover
     text-shadow: none;
 }
 
-.comment
-{
-   border-radius:30px;
+.comment {
+    border-radius: 30px;
     padding: 16px;
     background-color: rgba(15, 15, 15, 0.35);
     margin: 12px 0;
 }
 
-
-.comment .content
-{
+.comment .content {
     margin: 10px 0;
     color: #CFC;
     font-size: 11px;
     font-style: italic;
 }
 
-.comment  .author
-{
-   margin: 5px 0;
-  color:#3F5;
+.comment .author {
+    margin: 5px 0;
+    color: #3F5;
     font-weight: bold;
     padding: 0 0 3px;
     border-bottom: 1px inset #DDD;
     font-size: 0.75em;
 }
 
-
-.comment .time
-{
+.comment .time {
     color: #F7d;
     font-size: 0.55em;
 }
 
-.comment a.cid
-{
-    color:#B75;
-    float:right;
-    font-size:0.75em;
-    font-weight:bold;
-    padding:0 5px 5px 5px;
+.comment a.cid {
+    color: #B75;
+    float: right;
+    font-size: 0.75em;
+    font-weight: bold;
+    padding: 0 5px 5px 5px;
     text-decoration: none;
 }
 
-.comment a.cid:hover
-{
-    color:#5f5;
+.comment a.cid:hover {
+    color: #5f5;
 }
 
 .comment .pending {
@@ -246,51 +228,52 @@ a:hover
     max-width: 700px;
 }
 
-
-.alert-success{
+.alert-success {
     text-align: center;
     color: #050 !important;
     font-size: 22px;
 }
 
-table, table *{
+table, table * {
     border: none !important;
 }
 
-tbody tr:nth-child(2n+1){
+tbody tr:nth-child(2n+1) {
     background-color: rgba(1, 1, 1, 0.35) !important;
 }
 
-table  th{
+table th {
     background-color: rgba(1, 1, 1, 0.65) !important;
     border-radius: 20px;
     text-align: center;
 }
 
-.action-column{
+.action-column {
     display: none;
 }
 
-.panel{
+.panel {
     margin-left: 25px;
     border-radius: 16px;
     border: solid 2px #222;
     background: rgba(1, 1, 1, 0.25);
-    }
-
-.panel-heading{
-    border:none;
-    border-top-right-radius: 14px;
-    border-top-left-radius: 14px;
 }
 
-.panel-body .btn{
+.panel-heading {
+    border: none;
+    border-top-right-radius: 14px;
+    border-top-left-radius: 14px;
+    font-weight: bold;
+    color: #BBB !important;
+}
+
+.panel-body .btn {
     font-weight: bold;
     font-size: 16px;
     background: none;
 }
 
-.panel-body .approve{
+.panel-body .approve {
     font-size: 12px;
 }
 

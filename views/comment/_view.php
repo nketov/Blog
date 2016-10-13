@@ -17,16 +17,11 @@ $('.container').on('click','.time a.delete',function() {
 });
 
 $('.container').on('click','.time a.approve',function() {
-
 	var th=$(this);				
 	$.post(th.attr('href'));		
-	return false;
-	
+	return false;	
 });
-
-
 JS;
-
 $this->registerJs($JS, yii\web\View::POS_READY);
 
 ?>
@@ -61,4 +56,4 @@ $this->registerJs($JS, yii\web\View::POS_READY);
         <?php echo nl2br(Html::encode($model->content)); ?>
     </div>
 
-</div><!-- comment -->
+</div>

@@ -44,57 +44,52 @@ class Tag extends \yii\db\ActiveRecord
             'frequency' => 'Frequency',
         ];
     }
-    
-    
+
+
     public static function string2array($tags)
     {
-        return preg_split('/\s*,\s*/',trim($tags),-1,PREG_SPLIT_NO_EMPTY);
+        return preg_split('/\s*,\s*/', trim($tags), -1, PREG_SPLIT_NO_EMPTY);
     }
 
     public static function array2string($tags)
     {
-        return implode(', ',$tags);
+        return implode(', ', $tags);
     }
 
-    public static function suggestTags($keyword,$limit=20)
+    public static function suggestTags($keyword, $limit = 20)
     {
-        $tags=Tag::findAll(array(
-            'condition'=>'name LIKE :keyword',
-            'order'=>'frequency DESC, Name',
-            'limit'=>$limit,
-            'params'=>array(
-                ':keyword'=>'%'.strtr($keyword,array('%'=>'\%', '_'=>'\_', '\\'=>'\\\\')).'%',
+        $tags = Tag::findAll(array(
+            'condition' => 'name LIKE :keyword',
+            'order' => 'frequency DESC, Name',
+            'limit' => $limit,
+            'params' => array(
+                ':keyword' => '%' . strtr($keyword, array('%' => '\%', '_' => '\_', '\\' => '\\\\')) . '%',
             ),
         ));
-        $names=array();
-        foreach($tags as $tag)
-            $names[]=$tag->name;
+        $names = array();
+        foreach ($tags as $tag)
+            $names[] = $tag->name;
         return $names;
     }
 
     public static function updateFrequency($oldTags, $newTags)
     {
-        $oldTags=self::string2array($oldTags);
-        $newTags=self::string2array($newTags);
-        self::addTags(array_values(array_diff($newTags,$oldTags)));
-        self::removeTags(array_values(array_diff($oldTags,$newTags)));
+        $oldTags = self::string2array($oldTags);
+        $newTags = self::string2array($newTags);
+        self::addTags(array_values(array_diff($newTags, $oldTags)));
+        self::removeTags(array_values(array_diff($oldTags, $newTags)));
     }
 
     public static function addTags($tags)
     {
-//        $criteria=new CDbCriteria;
-//        $criteria->addInCondition('name',$tags);
-//        $this->updateCounters(array('frequency'=>1),$criteria);
 
-       
-        foreach($tags as $name) {
+        foreach ($tags as $name) {
             self::updateAllCounters(['frequency' => 1], ['name' => $name]);
 
-            if(! Tag::find()->where('name=:name',array(':name'=>$name))->exists())
-            {
-                $tag=new Tag;
-                $tag->name=$name;
-                $tag->frequency=1;
+            if (!Tag::find()->where('name=:name', array(':name' => $name))->exists()) {
+                $tag = new Tag;
+                $tag->name = $name;
+                $tag->frequency = 1;
                 $tag->save();
             }
         }
@@ -102,39 +97,32 @@ class Tag extends \yii\db\ActiveRecord
 
     public static function removeTags($tags)
     {
-        if(empty($tags))
+        if (empty($tags))
             return;
-//        $criteria=new CDbCriteria;
-//        $criteria->addInCondition('name',$tags);
-//        $this->updateCounters(array('frequency'=>-1),$criteria);
-//        $this->deleteAll('frequency<=0');
-        foreach($tags as $name) {
+
+        foreach ($tags as $name) {
             self::updateAllCounters(['frequency' => -1], ['name' => $name]);
         }
         self::deleteAll('frequency<=0');
     }
 
-    public static function findTagWeights($limit=20)
+    public static function findTagWeights($limit = 20)
     {
-        $models=self::find()->orderBy('frequency DESC')->limit($limit)->all();
+        $models = self::find()->orderBy('frequency DESC')->limit($limit)->all();
 
-        $total=0;
-        foreach($models as $model)
-            $total+=$model->frequency;
+        $total = 0;
+        foreach ($models as $model)
+            $total += $model->frequency;
 
-        $tags=array();
-        if($total>0)
-        {
-            foreach($models as $model)
-                $tags[$model->name]=8+(int)(16*$model->frequency/($total+10));
+        $tags = array();
+        if ($total > 0) {
+            foreach ($models as $model)
+                $tags[$model->name] = 8 + (int)(16 * $model->frequency / ($total + 10));
             ksort($tags);
         }
         return $tags;
     }
 
-
-    
-    
 }
 
 

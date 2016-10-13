@@ -3,11 +3,13 @@
         <hr>
         <?php
         use yii\helpers\Html;
+
         echo Html::a($model->title, $model->url); ?>
     </div>
 
     <div class="author row">
-        Опубликовал <span class="author-name"><?php echo $model->author->username . '</span>   ' . date('F j, Y', $model->create_time); ?>
+        Опубликовал <span
+            class="author-name"><?php echo $model->author->username . '</span>   ' . date('F j, Y', $model->create_time); ?>
     </div>
 
     <div class="content row">

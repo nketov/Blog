@@ -9,14 +9,10 @@ $config = [
     'modules' => [
         'admin' => [
             'class' => 'app\modules\admin\Module'
-        ],
-        'ckeditor' => [
-            'class' => 'wadeshuler\ckeditor\Module',
-        ],
-
+        ]
     ],
     'language' => 'ru-RU',
-    'sourceLanguage' =>'ru-RU',
+    'sourceLanguage' => 'ru-RU',
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
@@ -62,10 +58,10 @@ $config = [
                     'route' => '/post',
                     'suffix' => ''
                 ],
-                    'post/<id:\d+>/<title:.*?>'=>'post/view',
-                    'posts/<tag:.*?>'=>'post/index',
-                    '<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
-                   '<action:(about|contact|login)>' => 'site/<action>'
+                'post/<id:\d+>/<title:.*?>' => 'post/view',
+                'posts/<tag:.*?>' => 'post/index',
+                '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+                '<action:(about|contact|login)>' => 'site/<action>'
             ],
         ],
 

@@ -8,9 +8,7 @@ $this->title = 'Коментарии к моим постам:';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
-
 <div class="comment-index">
-
 
     <h4><?= Html::encode($this->title) ?></h4>
 

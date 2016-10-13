@@ -59,15 +59,14 @@ class PostController extends Controller
 
         $dataProvider->query->where(['status' => Post::STATUS_PUBLISHED]);
 
-        if(isset($_GET['tag'])){
-            $dataProvider->query->andFilterWhere(['like','tags',$_GET]);
+        if (isset($_GET['tag'])) {
+            $dataProvider->query->andFilterWhere(['like', 'tags', $_GET]);
         }
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
-
     }
 
 
@@ -125,13 +124,12 @@ class PostController extends Controller
 
     public function actionDelete($id)
     {
-
         if (Yii::$app->request->post()) {
             $this->findModel($id)->delete();
 
-            if (!isset($_GET['ajax']))
+            if (!isset($_GET['ajax'])) {
                 $this->redirect(array('index'));
-
+            }
         } else
             throw new HttpException(400, 'Ошибочный запрос. Пожайлуйста, не повторяйте его снова.');
 
@@ -165,13 +163,11 @@ class PostController extends Controller
             if ($this->_model == null)
                 throw new HttpException(404, 'Страница недоступна!!!');
         }
-
         return $this->_model;
     }
 
     public function actionView($id)
     {
-
         $post = $this->loadModel();
         $comment = $this->newComment($post);
 
@@ -183,16 +179,17 @@ class PostController extends Controller
     }
 
 
-    public function actionValidation(){
-        $model=new Comment();
+    public function actionValidation()
+    {
+        $model = new Comment();
 
         if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
             Yii::$app->response->format = Response::FORMAT_JSON;
             return ActiveForm::validate($model);
         }
     }
-    
-    
+
+
     protected function newComment($post)
     {
 
@@ -205,15 +202,10 @@ class PostController extends Controller
 
                 if ($comment->status == Comment::STATUS_PENDING)
                     Yii::$app->session->setFlash('commentSubmitted', 'Спасибо за комментарий! Он будет опубликован после одобрения.');
-                
+
             }
         }
         return $comment;
     }
-
-
-
-
-
 
 }

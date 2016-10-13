@@ -9,8 +9,8 @@ class ControlPanelWidget extends Widget
 
     public $panelCount;
 
-public function run()
-{
- return  $this->render('panel');
-    }   
+    public function run()
+    {
+        return $this->render('panel');
+    }
 }

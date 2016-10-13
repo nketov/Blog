@@ -1,9 +1,9 @@
 <?php
 
 $this->params['breadcrumbs'][] =
-    'Update Comment #'.$model->id;
+    'Изменить комментарий'.$model->id;
 ?>
 
-<h4>Update Comment #<?php echo $model->id; ?></h4>
+<h4>Изменить комментарий #<?php echo $model->id; ?></h4>
 
 <?php echo $this->render('_form', array('model'=>$model)); ?>

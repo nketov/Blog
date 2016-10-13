@@ -54,8 +54,8 @@ class PostSearch extends Post
                 'defaultOrder' => [
                     'create_time' => SORT_DESC,
                 ]
-          ]  
-            
+            ]
+
         ]);
 
         $this->load($params);

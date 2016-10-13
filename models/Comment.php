@@ -17,7 +17,7 @@ class Comment extends \yii\db\ActiveRecord
     {
         return '{{%comment}}';
     }
-    
+
     public function rules()
     {
         return [
@@ -45,14 +45,13 @@ class Comment extends \yii\db\ActiveRecord
         ];
     }
 
-    
+
     public function getPost()
     {
         return $this->hasOne(Post::className(), ['id' => 'post_id']);
     }
 
 
-   
     public function approve()
     {
         $this->status = Comment::STATUS_APPROVED;
@@ -76,23 +75,22 @@ class Comment extends \yii\db\ActiveRecord
             return Html::encode($this->author);
     }
 
-    
-    public static  function getPendingCommentCount()
+
+    public static function getPendingCommentCount()
     {
         return self::find()->joinWith('post')
             ->onCondition(['=', 'author_id', Yii::$app->user->id])
             ->andWhere(['tbl_comment.status' => self::STATUS_PENDING])
-            ->count() ;
+            ->count();
     }
 
-   
+
     public static function findRecentComments($limit = 10)
     {
         return self::find()->
         where(['status' => self::STATUS_APPROVED])->
         orderBy('create_time DESC')->
         limit($limit)->with('post')->all();
-
     }
 
 

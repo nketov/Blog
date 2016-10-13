@@ -8,9 +8,6 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\jui\AutoComplete;
 
-/* @var $this yii\web\View */
-/* @var $model app\models\Post */
-/* @var $form yii\widgets\ActiveForm */
 ?>
 
 <div class="form">
@@ -22,8 +19,6 @@ use yii\jui\AutoComplete;
             'enctype' => 'multipart/form-data'
         ],
     ]); ?>
-
-
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
@@ -37,13 +32,12 @@ use yii\jui\AutoComplete;
                 ->asArray()
                 ->all(),
         ],
-        'options'=>[
-            'class'=>'form-control'
+        'options' => [
+            'class' => 'form-control'
         ]
     ]) ?>
 
     <?= $form->field($model, 'status')->dropDownList(Lookup::items('PostStatus')); ?>
-
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Создать' : 'Сохранить изменения', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

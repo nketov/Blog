@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f6516fbae41bb42d993cea3666bf109f",
-    "content-hash": "fa83cb576d6d457a861e7e928330ac6f",
+    "hash": "68ee3f5a9c88c05ace98e36e45f75934",
+    "content-hash": "879b2de508f74a92e860d47e150051bc",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -462,46 +462,6 @@
                 "mailer"
             ],
             "time": "2016-07-08 11:51:25"
-        },
-        {
-            "name": "wadeshuler/yii2-ckeditor-cdn",
-            "version": "v1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/WadeShuler/yii2-ckeditor-cdn.git",
-                "reference": "86fc388023fc8f4f2be13fcd0da7410b1375386b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/WadeShuler/yii2-ckeditor-cdn/zipball/86fc388023fc8f4f2be13fcd0da7410b1375386b",
-                "reference": "86fc388023fc8f4f2be13fcd0da7410b1375386b",
-                "shasum": ""
-            },
-            "type": "yii2-extension",
-            "autoload": {
-                "psr-4": {
-                    "wadeshuler\\ckeditor\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Wade Shuler",
-                    "email": "wadeshuler@users.noreply.github.com"
-                }
-            ],
-            "description": "My restriction free version of a CKEditor CDN extension for Yii2",
-            "keywords": [
-                "CKEditor",
-                "cdn",
-                "extension",
-                "widget",
-                "yii2"
-            ],
-            "time": "2016-08-21 05:12:36"
         },
         {
             "name": "yiisoft/yii2",

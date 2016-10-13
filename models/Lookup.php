@@ -76,7 +76,6 @@ class Lookup extends \yii\db\ActiveRecord
             self::$_items[$type][$model->code]=$model->name;
     }
 
-
 }
 
 
