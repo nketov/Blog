@@ -30,7 +30,7 @@ form textarea, input, select {
 
 td {
     overflow: hidden;
-    max-width: 925px;
+    max-width: 410px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -124,7 +124,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .post .author {
-    color: #FFF;
+    color: #AFC;
     font-size: 8px;
     font-weight: bold;
 }
@@ -139,7 +139,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .post .title a {
-    color: #5BD;
+    color: #FFF;
 }
 
 .post .title a:hover {

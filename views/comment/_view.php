@@ -22,6 +22,7 @@ $('.container').on('click','.time a.approve',function() {
 	return false;	
 });
 JS;
+
 $this->registerJs($JS, yii\web\View::POS_READY);
 
 ?>
