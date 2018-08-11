@@ -28,6 +28,10 @@ form textarea, input, select {
     border-radius: 3px;
 }
 
+
+
+
+
 td {
     overflow: hidden;
     max-width: 410px;
@@ -86,6 +90,10 @@ h1, h2, h3, h4, h5, h6 {
     height: auto;
     margin: 0 auto -60px;
     padding: 0 0 60px;
+}
+
+.container{
+    width: 100%;
 }
 
 .wrap > .container {

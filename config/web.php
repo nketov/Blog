@@ -55,7 +55,7 @@ $config = [
             'rules' => [
                 [
                     'pattern' => '',
-                    'route' => '/post',
+                    'route' => '/test',
                     'suffix' => ''
                 ],
                 'post/<id:\d+>/<title:.*?>' => 'post/view',

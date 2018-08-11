@@ -80,14 +80,14 @@ AppAsset::register($this);
         <div class="container">
             <div class="row">
 
-                <div class="col-lg-9">
+                <div class="col-lg-12">
                     <?= $content ?>
                 </div>
 
-                <div class="col-lg-3">
-                    <?
-                    echo ControlPanelWidget::widget() ?>
-                </div>
+<!--                <div class="col-lg-3">-->
+<!--                    --><?//
+//                    echo ControlPanelWidget::widget() ?>
+<!--                </div>-->
 
             </div>
         </div>

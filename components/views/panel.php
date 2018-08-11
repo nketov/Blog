@@ -19,6 +19,7 @@ if (!Yii::$app->user->isGuest): ?>
         <div class="panel-heading"><?= Html::encode(Yii::$app->user->getIdentity()->username) ?></div>
         <div class="panel-body">
             <a type="button" class="btn  btn-lg" href="<?= Url::toRoute("post/edit") ?>">Мои посты</a>
+            <a type="button" class="btn  btn-lg" href="<?= Url::toRoute("test/index") ?>">Тест</a>
             <a type="button" class="btn  btn-lg" href="<?= Url::toRoute("post/create") ?>">Создать пост</a>
             <a type="button" class="btn  btn-lg  approve" href="<?= Url::toRoute("comment/index") ?>">Одобрить
                 комментарии
